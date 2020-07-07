@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="nav-bar">
+        <div class="hamburger open">
+            <div class="lines "></div>
+            <div class="lines "></div>
+            <div class="lines "></div>
+        </div>
+
+        <nav class="menu">
+            <ul class="list">
+                <li class="list-items"><a href="#">Home</a></li>
+                <li class="list-items"><a href="#">About</a></li>
+                <li class="list-items"><a href="#">Info</a></li>
+                <li class="list-items"><a href="#">More</a></li>
+            </ul>
+        </nav>
+
+        <nav class="sign">
+            <ul class="list">
+                <li class="list-items"><a href="#">Sign Up</a></li>
+                <li class="list-items"><a href="#">Sign In</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <section class="section">
+        <div class="heading">
+
+            <h1 data-type="Rising World,Coding Time,Code Never Lie"></h1>
+        </div>
+        <div class="div-btn">
+
+            <button id="btn">Learn To Code</button>
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+        <h2 class="logo">LOGO</h2>
+
+
+        <div class="social-page-links">
+
+
+            <ul class="page">
+                <li class="page-links"><a href="#">Page 1</a></li>
+                <li class="page-links"><a href="#">Page 2</a></li>
+                <li class="page-links"><a href="#">Page 3</a></li>
+                <li class="page-links"><a href="#">Page 4</a></li>
+            </ul>
+            <ul class="social">
+                <li class="social-links"><a href="#" class="fa fa-facebook"></a></li>
+                <li class="social-links"><a href="#" class="fa fa-twitter"></a></li>
+                <li class="social-links"><a href="#" class="fa fa-google"></a></li>
+                <li class="social-links"><a href="#" class="fa fa-linkedin"></a></li>
+            </ul>
+
+        </div>
+    </footer>
+
+    <script>
+
+        let ul_list = document.querySelector('.list')
+        let div_hamburger = document.querySelector('.hamburger')
+
+        let div_lines = document.querySelectorAll('.lines')
+
+
+        let heading = document.querySelector('.section .heading h1')
+
+        let headingContent = heading.getAttribute('data-type').split(",")
+
+
+        div_hamburger.onclick = () => {
+            console.log('click')
+            div_hamburger.classList.toggle('open')
+            for (const line of Array.from(div_lines)) {
+                line.classList.toggle('menu-open')
+            }
+
+            ul_list.classList.toggle('list-open')
+        }
+        // debugger --- Crutial One
+        const typing = (arr) => {
+            let i = 0, j = 0;
+            setInterval(() => {
+                if (j < arr.length && i < arr[j].length ) {
+                    heading.innerHTML += arr[j][i]
+                    i++;
+                    
+                }else {
+                    j++;
+                    i = 0;
+                    heading.innerHTML =""
+                }
+                 if (j >= arr.length){
+                    j= 0;
+                }
+                 
+            }, 100);
+            if (i == arr[j].length) {
+                i = 0
+            }
+        }
+        typing(headingContent)
+     
+    </script>
+
+
+</body>
+
+</html>
