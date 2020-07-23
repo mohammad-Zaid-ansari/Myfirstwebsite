@@ -72,6 +72,9 @@
     </footer>
 
     <script>
+       x =  performance.timing
+
+        let menu_contain_ul = document.querySelector('.menu')
 
         let ul_list = document.querySelector('.list')
         let div_hamburger = document.querySelector('.hamburger')
@@ -92,31 +95,34 @@
             }
 
             ul_list.classList.toggle('list-open')
+            menu_contain_ul.classList.toggle('list-open')
         }
         // debugger --- Crutial One
         const typing = (arr) => {
             let i = 0, j = 0;
             setInterval(() => {
-                if (j < arr.length && i < arr[j].length ) {
+                if (j < arr.length && i < arr[j].length) {
                     heading.innerHTML += arr[j][i]
                     i++;
-                    
-                }else {
+
+                } else {
                     j++;
                     i = 0;
-                    heading.innerHTML =""
+                    heading.innerHTML = ""
                 }
-                 if (j >= arr.length){
-                    j= 0;
+                if (j >= arr.length) {
+                    j = 0;
                 }
-                 
+
             }, 100);
             if (i == arr[j].length) {
                 i = 0
             }
         }
         typing(headingContent)
-     
+
+z = performance.timing
+console.log(x,z)
     </script>
 
 

@@ -11,37 +11,13 @@ html {
 body {
     width: 100vw;
     min-height: 100vh;
-    background: url(./patrick-hendry-MG7bslxCfaw-unsplash.jpg);
+    background: linear-gradient(35deg, rgba(1, 162, 255, 0.596), rgba(218, 208, 208, 0.267)), url(./patrick-hendry-MG7bslxCfaw-unsplash.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     overflow-x: hidden;
     overflow-y: auto;
-}
 
-/* div::before {
-    content: "";
-    background-image: url(./patrick-hendry-MG7bslxCfaw-unsplash.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-} */
-body::before {
-    content: "";
-    background-position: center;
-    background-size: cover;
-    background: rgba(109, 59, 138, 0.41);
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
 }
 
 .nav-bar {
@@ -52,10 +28,6 @@ body::before {
     margin-bottom: 1em;
     height: 90px;
 }
-
-/* .hamburger, .hamburger .lines{
-    display: none;
-} */
 
 .nav-bar nav {
     width: 50%;
@@ -124,7 +96,7 @@ body::before {
 
 .section .heading {
     line-height: unset;
-    
+
 }
 
 .section .div-btn #btn,
@@ -144,15 +116,6 @@ body::before {
     display: inline-block;
     height: unset;
 }
-
-/* @keyframes typing {
-    from {
-        width: 0;
-    }
-    to{
-        width: 100%;
-    }
-} */
 
 @keyframes blink-crate {
 
@@ -227,10 +190,10 @@ body::before {
     display: flex;
     justify-content: space-around;
     width: 50%;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     height: 20vh;
     align-items: center;
-    
+
 }
 
 .footer .social-page-links .page .page-links {
@@ -294,14 +257,20 @@ body::before {
 }
 
 .footer .social-page-links .social .social-links {
-    /*margin: 0 2.7em;*/
+    /*margin: 0 2.7em;
+    */
     list-style: none;
     display: inline-block;
     margin-right: .8em;
     margin-left: 1em;
     padding: 0.3em 0.5em;
     font-size: 1.5em;
-    background-color: red;
+    background-color: black;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 .footer .social-page-links .social .social-links a {
@@ -313,7 +282,32 @@ body::before {
     text-align: center;
 }
 
+@media only screen and (max-width:1057px) {
 
+    .footer .social-page-links .page,
+    .footer .social-page-links .social {
+        justify-content: unset;
+        flex-wrap: unset;
+        overflow-y: hidden;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    ul.page::-webkit-scrollbar, ul.social::-webkit-scrollbar {
+        height: 9px;
+    }
+    
+    ul.page::-webkit-scrollbar-thumb, ul.social::-webkit-scrollbar-thumb {
+        background: #cde17da8;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -ms-border-radius: 100%;
+        -o-border-radius: 100%;
+}
+    ul.page::-webkit-scrollbar-track, ul.social::-webkit-scrollbar-track {
+        background: radial-gradient(black, transparent);        
+    }
+}
 
 
 @media only screen and (max-width:670px) {
@@ -321,10 +315,6 @@ body::before {
         /* padding: 0; */
         height: 265px;
         align-items: unset;
-    }
-
-    .menu {
-        /*display: none; */
     }
 
     .hamburger {
@@ -385,6 +375,13 @@ body::before {
         position: relative;
         top: -4px;
         left: -21px;
+        width: 0;
+        /* display: none; */
+        transition: 4s;
+        -webkit-transition: 4s;
+        -moz-transition: 4s;
+        -ms-transition: 4s;
+        -o-transition: 4s;
     }
 
     .nav-bar .menu .list {
@@ -396,7 +393,7 @@ body::before {
         display: none;
         padding-top: 2em;
         padding-left: 1em;
-        width: 100%;
+        width: 0;
 
         /* opacity: 0; */
         transition: 2s;
@@ -406,8 +403,50 @@ body::before {
         -o-transition: 2s;
     }
 
+    .nav-bar .list-open,
     .nav-bar .menu .list-open {
         display: block;
+        width: 100%;
+        animation: animate 3s linear 1;
+        -webkit-animation: animate 2s linear 1 forwards;
+        position: relative;
+        top: -105%;
+        left: -105%;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+
+    @keyframes animate {
+        0% {
+            top: -105%;
+            left: -105%;
+            transform: translateY(2%);
+            -webkit-transform: translateY(2%);
+            -moz-transform: translateY(2%);
+            -ms-transform: translateY(2%);
+            -o-transform: translateY(2%);
+        }
+
+        50% {
+            transform: translate(-2%, 2%);
+            -webkit-transform: translate(-2%, 2%);
+            -moz-transform: translate(-2%, 2%);
+            -ms-transform: translate(-2%, 2%);
+            -o-transform: translate(-2%, 2%);
+        }
+
+        100% {
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            -webkit-transform: translate(0);
+            -moz-transform: translate(0);
+            -ms-transform: translate(0);
+            -o-transform: translate(0);
+        }
     }
 
     .nav-bar .menu .list .list-items {
